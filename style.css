@@ -1,0 +1,328 @@
+body {
+    background-image: url("../images/beerbackground.jpg");
+    font-family: calangorevi;
+    background-color: darkgrey;
+  }
+  
+  .jumbotron {
+    font-family: 'Alfa Slab One', cursive;
+    text-align: center;
+    background-image: url("https://previews.123rf.com/images/suljo/suljo0809/suljo080900001/3599373-close-up-of-beer-bubbles.jpg");
+  padding: 20px;
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color:  rgba(233, 245, 178, 0.856);
+    font-size: 4rem!important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+    overflow: hidden;
+    
+  }
+  
+  #greeting-card {
+    font-family: 'Zilla Slab', serif;
+    text-align: center;
+  padding: 20px;
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color:  rgba(233, 245, 178, 0.856);
+    font-size: 2rem!important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  #greeting-card2 {
+    font-family: 'Zilla Slab', serif;
+    text-align: center;
+  padding: 20px;
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color: rgba(233, 245, 178, 0.856);
+    font-size: 2rem!important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  
+  
+  #main-content {
+    display: none;
+  }
+  
+  @font-face {
+    font-family: 'Zilla Slab', serif;
+    src: url("../fonts/calangorevi.otf")
+  }
+  
+  #hours-list {
+  margin: 0;
+  padding: 0;
+  }
+  
+  
+  .reviews {
+    position: relative;
+  
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color:  rgba(233, 245, 178, 0.856);
+    overflow: hidden;
+    height: 17rem;
+   margin-bottom: 1rem;
+  
+  }
+  
+  .map {
+  
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color:  rgba(233, 245, 178, 0.856);
+    height: 20rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card1 {
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color:  rgba(233, 245, 178, 0.856);
+  overflow: auto;
+    height: 24rem;
+  margin-bottom: 1rem;
+  }
+  .card2 {
+    border: 5px solid rgba(233, 245, 178, 0.856);
+    border-radius: 20px;
+    background-color:  rgba(233, 245, 178, 0.856);
+  overflow: auto;
+    height: 13rem;
+  margin-bottom: 1rem;
+  }
+  
+  .alert {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  
+  footer {
+    border-top: 5px solid rgba(233, 245, 178, 0.856);
+    background-color:  rgba(127, 199, 130, 0.856);
+    margin-top: 20px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    height: 3rem;
+    line-height: 5ch;
+  }   
+  
+  .container {
+  
+  padding-bottom: 4rem;
+  }
+  
+  
+  .card-body{
+  overflow:auto;
+  }
+  
+  .display-4 {
+    font-size: 4.5rem;  
+  }
+  
+  .btn-search {
+  background-color: #212529;
+    color: #ffc136; 
+  }
+  
+  a {
+  font-size: 1.2em;
+  font-weight: 500;
+   color: #212529;
+  }
+  
+  li {
+  list-style-type: none;
+  }
+  
+  a:hover {
+  color: #22262a;
+  }
+  
+  .address {
+  margin-left: 2px;
+  }
+  #map-canvas {
+        height: 15rem;  
+        width: 100%;  
+       }
+     
+  .bubbles {
+    position: relative;
+    top: 0;
+    left: -100px;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0);
+  }
+  
+  .bubbles2 {
+    margin-left: 50px;
+    margin-top: 11rem;  
+  }
+  
+  .bubbles li {
+    display: block;
+    position: absolute;
+    list-style: none;
+    background-color: white;
+    border: 1px solid  rgba(247, 230, 2, 0.856);    
+    animation: square 20s infinite;
+    transition-timing-function: linear;
+    margin-top: 36px;
+    opacity: 0.8;
+    border-radius: 200px;
+    width: 5px;
+    height: 5px; 
+  }
+  
+  ul {
+    margin-right: 50px; 
+  }
+  
+  .bubbles li:nth-child(1) {
+   left: 20%;
+    animation-delay: 5s;
+    animation-duration: 9s;
+  }
+  .bubbles li:nth-child(2) {
+   left: 30%;
+    animation-delay: 2s;
+    animation-duration: 6s;
+  }
+  .bubbles li:nth-child(3) {
+   left: 20%;
+    animation-delay: 3s;
+    animation-duration: 5s;
+  }
+  .bubbles li:nth-child(4) {
+    left: 30%;
+    animation-delay: 4s;
+    animation-duration: 7s;
+  }
+  .bubbles li:nth-child(5) {
+    left: 40%;
+    animation-delay: 5s;
+    animation-duration: 5s;
+  }
+  .bubbles li:nth-child(6) {
+  left: 50%;
+    animation-delay: 6s;
+    animation-duration: 7s;
+  }
+  .bubbles li:nth-child(7) {
+    left: 20%;
+    animation-delay: 7s;
+    animation-duration: 5s;
+  }
+  .bubbles li:nth-child(8) {
+    left: 80%;
+    animation-delay: 8s;
+    animation-duration: 6s;
+  }
+  .bubbles li:nth-child(9) {
+    left: 100%;
+    animation-delay: 9s;
+    animation-duration: 5s;
+  }
+  .bubbles li:nth-child(10) {
+    left: 70%;
+    animation-delay: 10s;
+    animation-duration:5s;
+  }
+  .bubbles li:nth-child(11) {
+    left: 60%;
+    animation-delay: 11s;
+    animation-duration: 5s;
+  }
+  .bubbles li:nth-child(12) {
+    left: 90%;
+    animation-delay: 10s;
+    animation-duration:5s;
+  }
+  .bubbles li:nth-child(13) {
+    left: 40%;
+    animation-delay: 9s;
+    animation-duration: 6s;
+  }
+  
+  .bubbles li:nth-child(14) {
+   left: 100%;
+    animation-delay: 10s;
+    animation-duration:5s;
+  }
+  
+  .bubbles li:nth-child(15) {
+    left: 60%;
+    animation-delay: 11s;
+    animation-duration: 5s;
+  }
+  
+  .bubbles li:nth-child(16) {
+    left: 90%;
+    animation-delay: 1s;
+    animation-duration:6s;
+  }
+  
+  .bubbles li:nth-child(17) {
+    left: 60%;
+    animation-delay: 11s;
+    animation-duration: 5s;
+  }
+  .bubbles li:nth-child(18) {
+    left: 90%;
+    animation-delay: 5s;
+    animation-duration:5s;
+  }
+  .bubbles li:nth-child(19) {
+    left: 40%;
+    animation-delay: 9s;
+    animation-duration: 6s;
+  }
+  
+  .bubbles li:nth-child(20) {
+   left: 100%;
+    animation-delay: 10s;
+    animation-duration:5s;
+  }
+  
+  .bubbles li:nth-child(21) {
+    left: 60%;
+    animation-delay: 11s;
+    animation-duration: 5s;
+  }
+  
+  .bubbles li:nth-child(22) {
+    left: 90%;
+    animation-delay: 7s;
+    animation-duration:6s;
+  }
+  
+  .bubbles li:nth-child(23) {
+    left: 0%;
+    animation-delay: 2s;
+    animation-duration:6s;
+  }
+  
+  @keyframes square {
+    0% {
+        -webkit-transform: translateY(0);
+  }   
+  100% {
+       -webkit-transform: translateY(-900px) rotate(630deg);
+        transform: translateY(-900px) rotate(630deg);
+  }
+  
+  }
