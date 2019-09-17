@@ -15,7 +15,7 @@ padding: 20px;
   font-size: 4rem!important;
 margin-top: 2rem;
 margin-bottom: 1rem;
- 
+  overflow: hidden;
   
 }
 select {
@@ -26,7 +26,14 @@ select {
     background:white;
 }
   
+#badge-secondary {
 
+
+background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  color: darkgray;
+}
 
 #submit {
   margin-bottom: 20px;
