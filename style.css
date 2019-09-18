@@ -1,23 +1,23 @@
 body {
-  background-image: url("../images/beerbackground.jpg");
+  
   font-family: calangorevi;
   background-color: rgb(58, 57, 57);
 }
 
 .jumbotron {
+  background-image: url("https://previews.123rf.com/images/suljo/suljo0809/suljo080900001/3599373-close-up-of-beer-bubbles.jpg");
+  font-family: calangorevi;
   font-family: 'Alfa Slab One', cursive;
   text-align: center;
-  background-image: url("https://previews.123rf.com/images/suljo/suljo0809/suljo080900001/3599373-close-up-of-beer-bubbles.jpg");
-padding: 20px;
-  border: 5px solid rgba(238, 196, 82, 0.856);
-  border-radius: 20px;
-  background-color:  rgba(233, 245, 178, 0.856);
-  font-size: 4rem!important;
-margin-top: 2rem;
-margin-bottom: 1rem;
-  overflow: hidden;
-  
+  height: 6in
 }
+.bar-search {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+  color: white;
+}
+  
+
 select {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12pt;
@@ -26,21 +26,9 @@ select {
     background:white;
 }
   
-#badge-secondary {
+.
 
 
-background-color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  color: darkgray;
-}
-
-#submit {
-  margin-bottom: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  color: darkgray;
-}
 
 
 #greeting-card {
@@ -70,33 +58,7 @@ margin-bottom: 1rem;
 }
 
 
-#main-content {
-  display: none;
-}
 
-
-@font-face {
-  font-family: 'Zilla Slab', serif;
-  src: url("../fonts/calangorevi.otf")
-}
-
-#hours-list {
-margin: 0;
-padding: 0;
-}
-
-
-.reviews {
-  position: relative;
-
-  border: 5px solid rgba(233, 245, 178, 0.856);
-  border-radius: 20px;
-  background-color:  rgba(233, 245, 178, 0.856);
-  overflow: hidden;
-  height: 17rem;
- margin-bottom: 1rem;
-
-}
 
 .map {
 
@@ -114,6 +76,7 @@ padding: 0;
 overflow: auto;
   height: 24rem;
 margin-bottom: 1rem;
+
 }
 .card2 {
   border: 5px solid rgba(233, 245, 178, 0.856);
@@ -152,6 +115,7 @@ padding-bottom: 4rem;
 
 
 .card-body{
+
 overflow:auto;
 }
 
@@ -181,10 +145,81 @@ color: #22262a;
 .address {
 margin-left: 2px;
 }
-#map-canvas {
-      height: 15rem;  
-      width: 100%;  
-     }
+#map {
+  height: 100%;
+}
+
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+#target {
+  width: 345px;
+}
    
 .bubbles {
   position: relative;
