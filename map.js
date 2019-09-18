@@ -8,7 +8,7 @@ var hostnameRegexp = new RegExp('^https?://.+?/');
 var countries = {
   'us': {
     center: {lat: 37.1, lng: -95.7},
-    zoom: 3
+    zoom: 4
   }
 };
 
