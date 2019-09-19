@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example of Auto Loading Bootstrap Modal on Page Load</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Zilla+Slab&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+<script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+    
+function getOption() {
+  var obj = document.getElementById("mySelect");
+  document.getElementById("demo").innerHTML = 
+  obj.options[obj.selectedIndex].text;
+}
+</script>
+</head>
+<body>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                
+            <div class="modal-header">
+                    
+            
+                <h4 class="modal-title">Are you 21 or over?</h4>
+            </div>
+            <div class="modal-body">
+				<p>Make your choice wisely.</p>
+                <form>
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                    <button type="submit" class="btn btn-primary">No</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+	
+		<div class="jumbotron">
+			
+              
+			<div>
+				<h1 class="display-4">Brewery Search</h1>
+				<p class="lead">"Seattle Area Brewery Finder"</p>
+			</div>
+
+			<div class="row justify-content-md-center">
+				<div class="col col-md-6">
+						<form id="beer-form">
+								<label for="beer-form">Find me a Beer in this City:</label>
+								<input type="text" id="beer-input"><br>
+								<input id="select-beer" type="submit" value="GO!">
+							</form>
+						</div>
+						
+
+				<ul class="bubbles">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+
+
+
+		<div id="main-content">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="card card1">
+						<div class="card-body">
+							<h3 class="card-title">Search Results:</h3>
+							<div id="brew-list"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-7">
+
+					<div class="card map">
+
+						<div class="card-body">
+							Map:
+							<div class="row">
+								<div class="col-md" id="map-canvas">
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function searchBreweryDb(city) {
+	var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city;
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	}).then(function(response){
+		console.log(response);
+		//$("#brew-list").empty();
+
+		for (var i = 0; i < response.length; i++) {
+		console.log(response[i].name);
+		var breweryName = $("<h1>").text(response[i].name);
+		var website_URL = $("<a>").attr("href", response[i].website_url);
+		// website_URL.append(breweryName);
+		console.log(website_URL);
+		website_URL.text(response[i].name);
+		var streetAddress = $("<h2>").text("Address: " + response[i].street);
+		var city = $("<h1>").text("City: " + response[i].city);
+		var phoneNum = $("<h2>").text("Phone Number: " + response[i].phone);
+		
+
+	$("#brew-list").append(breweryName, website_URL, streetAddress, phoneNum, city);       
+
+		}
+  });
+}
+$("#select-beer").on("click", function(event) {
+event.preventDefault();
+var inputStyle = $("#beer-input").val().trim();
+searchBreweryDb(inputStyle);
+});
+</script>
+</html>

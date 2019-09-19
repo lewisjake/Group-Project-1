@@ -1,6 +1,172 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
- 
+<meta charset="UTF-8">
+<title>Example of Auto Loading Bootstrap Modal on Page Load</title>
+
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Zilla+Slab&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+<script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+<script src="map.js"></script>
+
+
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+    
+function getOption() {
+  var obj = document.getElementById("mySelect");
+  document.getElementById("demo").innerHTML = 
+  obj.options[obj.selectedIndex].text;
+}
+</script>
 </head>
+<body>
+
+<div class="container">
+	<div class="jumbotron">
+		<div>
+			<h1 class="display-4">Brewery Search</h1>
+			<h2 class="lead">"Seattle Area Brewery Finder"</h2>
+		</div>
+	<div class="row justify-content-md-center">
+		<div class="col col-md-6">
+			<form id="beer-form">
+                    <h2 class="lead">"Find me a beer in this city:"</h2>
+				<input type="text" id="beer-input"><br>
+				<input id="select-beer" type="submit" value="GO!">
+			</form>
+        </div>
+    </div>
+		<ul class="bubbles">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+			</ul>
+		</div>
+	
+<div id="main-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card1">
+				<div class="card-body">
+					<h3 class="card-title">Search Results:</h3>
+					<div id="brew-list"></div>
+			    </div>
+			</div>
+        </div>
+    </div>
+    <div class="row">
+	    <div class="col col-md-8">
+            <div class="bar-search">
+                <div id="findbar">
+                Map your brewery or bar in a city:
+                </div>                  
+            <div id="locationField">
+                <input id="autocomplete" placeholder="Enter a city" type="text" />
+            </div>
+            <div id="controls">
+            <select id="country">
+                <option value="us" selected>U.S.A.</option>
+            </select>
+            </div>
+			</div>
+		</div>
+		<div id="map" style="height: 600px; width: 600px;"></div>
+        <div class="col col-md-4">
+            <div id="listing">
+            <table id="resultsTable">
+                <tbody id="results"></tbody>
+                </table>
+            </div>                  
+            <div style="display: none">
+            <div id="info-content">
+                <table>
+                    <tr id="iw-url-row" class="iw_table_row">
+                        <td id="iw-icon" class="iw_table_icon"></td>
+                        <td id="iw-url"></td>
+                    </tr>
+                    <tr id="iw-address-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Address:</td>
+                        <td id="iw-address"></td>
+                    </tr>
+                        <tr id="iw-phone-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Telephone:</td>
+                            <td id="iw-phone"></td>
+                        </tr>
+                    <tr id="iw-rating-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Rating:</td>
+                    <td id="iw-rating"></td>
+                    </tr>
+                    <tr id="iw-website-row" class="iw_table_row">
+                        <td class="iw_attribute_name">Website:</td>
+                        <td id="iw-website"></td>
+                    </tr>
+                </table>
+            </div>
+            </div>
+        </div>                    
+    </div>
+</div>   
+</div>                     
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+function searchBreweryDb(city) {
+	var queryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city;
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	}).then(function(response){
+		console.log(response);
+		$("#brew-list").empty();
+
+		for (var i = 0; i < response.length; i++) {
+		var breweryName = $("<h1>").text(response[i].name);
+		var website_URL = $("<a>").attr("href", response[i].website_url).appendTo(breweryName);
+		var streetAddress = $("<h2>").text("Address: " + response[i].street);
+		var city = $("<h1>").text("City: " + response[i].city);
+		var phoneNum = $("<h2>").text("Phone Number: " + response[i].phone);
+		
+
+	$("#brew-list").append(breweryName, website_URL, streetAddress, phoneNum, city);       
+
+		}
+  });
+}
+$("#select-beer").on("click", function(event) {
+event.preventDefault();
+var inputStyle = $("#beer-input").val().trim();
+searchBreweryDb(inputStyle);
+});
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8OK6-9L8Vclgz6zf0FHrXNnxmQXylCDU&libraries=places&callback=initMap"
+async defer></script>
+
+
+</html>
