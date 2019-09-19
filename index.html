@@ -146,7 +146,8 @@ function searchBreweryDb(city) {
 
 		for (var i = 0; i < response.length; i++) {
 		var breweryName = $("<h1>").text(response[i].name);
-		var website_URL = $("<a>").attr("href", response[i].website_url).appendTo(breweryName);
+		var website_URL = $("<a>").attr("href", response[i].website_url);
+		website_URL.text(response[i].name;
 		var streetAddress = $("<h2>").text("Address: " + response[i].street);
 		var city = $("<h1>").text("City: " + response[i].city);
 		var phoneNum = $("<h2>").text("Phone Number: " + response[i].phone);
