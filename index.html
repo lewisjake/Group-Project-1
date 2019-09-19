@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
 <title>Example of Auto Loading Bootstrap Modal on Page Load</title>
 
 <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Zilla+Slab&display=swap" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" /> 
 <script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -141,19 +142,18 @@ function searchBreweryDb(city) {
 		url: queryURL,
 		method: "GET"
 	}).then(function(response){
-		console.log(response);
+		//console.log(response);
 		$("#brew-list").empty();
 
 		for (var i = 0; i < response.length; i++) {
-		var breweryName = $("<h1>").text(response[i].name);
-		var website_URL = $("<a>").attr("href", response[i].website_url).appendTo(breweryName);
-		var streetAddress = $("<h2>").text("Address: " + response[i].street);
-		var city = $("<h1>").text("City: " + response[i].city);
-		var phoneNum = $("<h2>").text("Phone Number: " + response[i].phone);
-		
-
-	$("#brew-list").append(breweryName, website_URL, streetAddress, phoneNum, city);       
-
+			//Using string literal
+			var newHtml = 
+				`<h1>${response[i].name}</h1>
+				<a href = ${response[i].website_url}>Link</a>
+				<h2>${response[i].street}</h2>
+				<h1>${response[i].city}</h1>
+				<h2>${response[i].phone}</h2>`
+				$("#brew-list").html(newHtml);       
 		}
   });
 }

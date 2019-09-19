@@ -1,10 +1,11 @@
+//Global variables
 var map, places, infoWindow;
 var markers = [];
 var autocomplete;
 var countryRestrict = {'country': 'us'};
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 var hostnameRegexp = new RegExp('^https?://.+?/');
-
+//Global object variable
 var countries = {
   'us': {
     center: {lat: 37.1, lng: -95.7},
@@ -12,6 +13,7 @@ var countries = {
   }
 };
 
+//Function to initate and access the map
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: countries['us'].zoom,
@@ -22,6 +24,7 @@ function initMap() {
     streetViewControl: false
   });
 
+  //Storing the value of the
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById('info-content')
   });
